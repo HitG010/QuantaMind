@@ -2,6 +2,7 @@ let started = false;
 let level = 0;
 let quesBlock = document.querySelector(".question-block");
 let questionNum = document.querySelector(".question-number");
+let nxtBtn = document.querySelector(".next-btn");
 
 questions = [
   "How are you feeling now? ",
@@ -78,17 +79,34 @@ quesBlock.addEventListener("click", () => {
   if (started === false) {
     console.log("Questionnaire started");
     levelUp();
-    // started = true;
+    started = true;
+    nxtBtn.classList.remove("hide");
+    document
+      .querySelector(".options")
+      .removeChild(document.querySelector(".get-started"));
+  }
+});
+
+nxtBtn.addEventListener("click", () => {
+  if (started === true) {
+    const clone = quesBlock.cloneNode(true);
+    quesBlock.classList.add("upwards");
+    clone.classList.add("newCard");
+    document.querySelector(".main-right").append(clone);
+    levelUp();
+    setTimeout(() => {
+      clone.classList.add("hide");
+    }, 1200);
   }
 });
 
 function levelUp() {
   level++;
-
+  quesBlock.classList.add("side-animation");
   questionNum.innerText = `Question ${level}`;
-  let ques = document.querySelector(".question");
+  let ques = document.querySelector(".intro-question");
   ques.innerText = questions[level - 1];
-  let optionsQues = document.querySelector(".options");
+  let optionsQues = document.querySelector(".options form");
   optionsQues.innerHTML = "";
   console.log(options[level - 1]);
   let temp = Object.keys(options[level - 1]);
@@ -107,4 +125,8 @@ function levelUp() {
     div.append(label);
     optionsQues.append(div);
   }
+  setTimeout(() => {
+    quesBlock.classList.remove("side-animation");
+    quesBlock.classList.remove("upwards");
+  }, 1200);
 }
