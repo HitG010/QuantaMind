@@ -8,7 +8,10 @@ btn.addEventListener("click", function () {
 let themeBtn = document.querySelector(".themeBtn");
 
 function darkMode() {
-  let meterBlock = document.querySelector(".meter-block");
+  let body = document.querySelector("body");
+  body.classList.add("dark-bg");
+  document.querySelector("title-upper").classList.add("dark-title");
+  document.querySelector("title-lower").classList.add("dark-title");
 }
 
 themeBtn.addEventListener("click", darkMode);
