@@ -97,6 +97,7 @@ html {
   border: 2px solid rgba(0, 0, 0, 0.2);
   border-bottom: 7px solid rgba(0, 0, 0, 0.2);
   border-radius: 20px;
+
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: flex;
   flex-direction: column;
@@ -104,6 +105,17 @@ html {
   padding: 20px;
 }
 
+.progress-bar {
+  background-color: #000;
+  position: relative;
+  top: 27px;
+  height: 7px;
+  right: 10px;
+  width: 0;
+  border-radius: 20px;
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 200px;
+}
 .question-block {
   display: flex;
   width: 571px;
