@@ -1,9 +1,10 @@
 let started = false;
-let level = 0;
+let level = 14;
 let quesBlock = document.querySelector(".question-block");
 let questionNum = document.querySelector(".question-number");
 let nxtBtn = document.querySelector(".next-btn");
-
+let mentalWellBeingScore = 0;
+let helpQuotient = 0;
 questions = [
   "How are you feeling now? ",
   "Do you regret decisions taken in your past?",
@@ -91,9 +92,29 @@ options = [
     No: [1, 2],
   },
   {
-    Athesis: [],
+    1: [1, 2],
+    2: [1, 2],
+    3: [1, 2],
+    4: [1, 2],
+    5: [3, 2],
+    6: [3, 1],
+    7: [3, 1],
+    8: [3, 1],
+    9: [2, 1],
+    10: [2, 1],
   },
-  {},
+  {
+    1: [1, 2],
+    2: [1, 2],
+    3: [1, 2],
+    4: [1, 2],
+    5: [2, 2],
+    6: [2, 2],
+    7: [2, 1],
+    8: [2, 1],
+    9: [3, 1],
+    10: [3, 1],
+  },
   {
     bright: [3, 1],
     Struggling: [2, 2],
@@ -118,14 +139,25 @@ quesBlock.addEventListener("click", () => {
 
 nxtBtn.addEventListener("click", () => {
   if (started === true) {
-    const clone = quesBlock.cloneNode(true);
-    quesBlock.classList.add("upwards");
-    clone.classList.add("newCard");
-    document.querySelector(".main-right").append(clone);
-    levelUp();
-    setTimeout(() => {
-      clone.classList.add("hide");
-    }, 1200);
+    if (checkAns()) {
+      if (level == 15) {
+        progress();
+        finished();
+        // started = false;
+        level = 0;
+        return;
+      }
+      const clone = quesBlock.cloneNode(true);
+      quesBlock.classList.add("upwards");
+      clone.classList.add("newCard");
+      document.querySelector(".main-right").append(clone);
+      levelUp();
+      setTimeout(() => {
+        clone.classList.add("hide");
+      }, 1200);
+    } else {
+      // alert("Please select an option");
+    }
   }
 });
 
@@ -141,7 +173,10 @@ function oneTo10(idx) {
     opt.setAttribute("class", "option");
     opt.setAttribute("type", "radio");
     opt.setAttribute("name", idx);
-    label.setAttribute("for", idx);
+    opt.setAttribute("value", `${i}`);
+    opt.addEventListener("click", check);
+    opt.setAttribute("id", `${i}`);
+    label.setAttribute("for", `${i}`);
     label.innerText = `${i}`;
     div.append(opt);
     div.append(label);
@@ -152,6 +187,15 @@ function oneTo10(idx) {
 function levelUp() {
   level++;
   progress();
+  if (level > 15) {
+    finished();
+    started = false;
+    level = 0;
+    return;
+  }
+
+  nxtBtn.classList.add("disabled-btn");
+
   quesBlock.classList.add("side-animation");
   questionNum.innerText = `Question ${level}`;
   let ques = document.querySelector(".intro-question");
@@ -178,7 +222,10 @@ function levelUp() {
     opt.setAttribute("class", "option");
     opt.setAttribute("type", "radio");
     opt.setAttribute("name", level);
-    label.setAttribute("for", level);
+    opt.setAttribute("value", optText);
+    opt.setAttribute("id", optText);
+    opt.addEventListener("click", check);
+    label.setAttribute("for", optText);
     label.innerText = optText;
     div.append(opt);
     div.append(label);
@@ -196,6 +243,9 @@ function progress() {
   let progressNum = document.querySelector(".progress-num");
   let a = ((level - 1) / 15) * 100;
   a = Math.ceil(a);
+  if (prev == a) {
+    a = 100;
+  }
   let i = prev;
   let id = setInterval(() => {
     if (i == a) {
@@ -214,4 +264,33 @@ function progress() {
     i++;
   }, 100);
   prev = a;
+}
+
+function checkAns() {
+  let optionsQues = document.querySelector(".options form");
+  let flag = false;
+  for (let i of optionsQues.elements) {
+    console.log(i);
+    if (i.checked) {
+      flag = true;
+      mentalWellBeingScore += options[level - 1][i.value][0];
+      helpQuotient += options[level - 1][i.value][1];
+      return flag;
+    }
+  }
+  return flag;
+}
+
+function finished() {
+  console.log(`mentalWellBeingScore = ${mentalWellBeingScore}`);
+  console.log(`helpQuotient = ${helpQuotient}`);
+  setTimeout(() => {
+    alert(
+      `thanks for filling the form\n helpQuotient = ${helpQuotient}\nmentalWellBeingScore = ${mentalWellBeingScore}`
+    );
+  }, 1000);
+}
+
+function check() {
+  nxtBtn.classList.remove("disabled-btn");
 }

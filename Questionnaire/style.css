@@ -240,6 +240,7 @@ html {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(17.5px);
   transition: 0.2s;
+  user-select: none;
 }
 
 .next-btn:hover {
@@ -300,4 +301,9 @@ html {
 .upwards {
   position: absolute;
   z-index: 10;
+}
+
+.disabled-btn {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
