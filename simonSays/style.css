@@ -1,0 +1,192 @@
+body {
+  font-family: "Product Sans Medium", sans-serif;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.left{
+  margin-left: 40px;
+}
+
+.right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 300px;
+}
+
+.title{
+  font-weight: 500;
+  font-size: 55px;
+}
+
+.deets{
+  font-size: 25px;
+}
+.streak{
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  padding: 2px 0px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.streak1{
+  display: flex;
+  justify-content: center;
+  align-items : center;
+  width: 250px;
+  /* border: 2px solid rgba(0, 0, 0, 0.15); */
+  border-radius: 100px;
+  padding: 2px 0px;
+  height: 50px;
+  padding : 10px 0;
+  margin-left: 10px;
+  font-size: 30px;
+  border-radius: 50px;
+background: rgba(217, 217, 217, 0.05);
+box-shadow: 0px 2px 13.8px 0px rgba(0, 0, 0, 0.10) inset, 0px 0px 14.5px 0px #FFF inset;
+}
+
+.deets-container{
+  display: flex;
+  align-items: center;
+}
+
+.press{
+  font-size: 25px;
+  margin-top: 70px;
+}
+/* 
+.btn {
+  height: 15rem;
+  width: 15rem;
+  border-radius: 10%;
+  /* border: 5px solid black; */
+  /* margin: 0.2rem;
+  transition: 0.2s;
+  cursor: pointer;
+} */
+
+.play{
+  background-color: #FF0000;
+  font-family: "Product Sans Medium", sans-serif;
+  font-size: 20px;
+ padding: 10px 0;
+ width: 100px;
+ border-radius: 10px;
+ border: none;
+ margin-top: 25px;
+ display: flex;
+ justify-content: center;
+ color: white;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 336px;
+  height: 250px;
+  border-radius: 15px;
+  background: #FFF;
+  box-shadow: 0px 4px 12.9px 0px rgba(0, 0, 0, 0.15);
+}
+.info p{
+  margin-top: -10px;
+  font-size: 25px;
+}
+
+.btn{
+  height: 15rem;
+  width: 15rem;
+  border-radius: 125px 20px 20px 20px;
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.10) inset, 0px -11px 16.3px 0px rgba(255, 255, 255, 0.45) inset, -6px 4px 12.1px 0px rgba(0, 0, 0, 0.10) inset, 7px 4px 8.2px 0px rgba(255, 255, 255, 0.45) inset;
+  margin: 5px;
+  transition: 0.2s;
+}
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.upper-container,
+.lower-container {
+  display: flex;
+  justify-content: center;
+}
+
+.green {
+  border-radius: 20px 20px 20px 125px;
+background: #87FF7C;
+box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.10) inset, 0px -11px 16.3px 0px rgba(255, 255, 255, 0.45) inset, -6px 4px 12.1px 0px rgba(0, 0, 0, 0.10) inset, 7px 4px 8.2px 0px rgba(255, 255, 255, 0.45) inset;
+}
+
+.yellow {
+  border-radius: 125px 20px 20px 20px;
+  background: #FFF960;
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.10) inset, 0px -11px 16.3px 0px rgba(255, 255, 255, 0.45) inset, -6px 4px 12.1px 0px rgba(0, 0, 0, 0.10) inset, 7px 4px 8.2px 0px rgba(255, 255, 255, 0.45) inset;
+}
+
+.blue {
+  border-radius: 20px 20px 125px 20px;
+background: #41BAFF;
+box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.10) inset, 0px -11px 16.3px 0px rgba(255, 255, 255, 0.45) inset, -6px 4px 12.1px 0px rgba(0, 0, 0, 0.10) inset, 7px 4px 8.2px 0px rgba(255, 255, 255, 0.45) inset;
+}
+
+.red {
+  border-radius: 20px 125px 20px 20px;
+  background: #FF5C5C;
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.10) inset, 0px -11px 16.3px 0px rgba(255, 255, 255, 0.45) inset, -6px 4px 12.1px 0px rgba(0, 0, 0, 0.10) inset, 7px 4px 8.2px 0px rgba(255, 255, 255, 0.45) inset;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 500px) {
+  .btn {
+    height: 10rem;
+    width: 10rem;
+  }
+  .btn:hover {
+    transform: scale(1.1);
+  }
+}
+@media (max-width: 400px) {
+  .upper-container,
+  .lower-container {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+  .btn {
+    border-radius: 20%;
+  }
+}
+
+.flash {
+  transition: 0s;
+  background-color: white;
+}
+
+.correct {
+  transition: 0s;
+  background-color: green;
+}
+
+.incorrect {
+  background-color: red;
+}
