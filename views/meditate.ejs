@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation Session</title>
+    <link rel="stylesheet" type="text/css" href="/meditate.css">
+
+</head>
+<body>
+    <div class="title-container">
+        <p class="category-title"><%= category %> </p>
+        <p class="duration"><%= duration %> mins</p>
+    </div>
+    <p class="minutes"><%= duration %></p>
+    <div class="timer">
+        <p class="countdown"><%= duration %>:00</p>
+    </div>
+
+    <div class="buttons-tray">
+        <button class="play-or-pause button" type="submit">
+            <img src="/meditate/ion_play.png">
+        </button>
+        <button class="reset button" type="submit">
+            <img src="/meditate/Frame 66.png">
+        </button>
+        <button class="edit button" type="submit">
+            <img src="/meditate/Frame 66-3.png">
+        </button>
+        <!-- <button class="sound-or-nosound button" type="submit">
+            <img src="/img/Frame 66-2.png">
+        </button> -->
+
+    </div>
+
+    <svg height="500" width="500" class="main-circle">
+        <circle cx="250" cy="250" r="180" />
+    </svg>
+    <svg height="500" width="500" class="back-circle">
+        <circle cx="250" cy="250" r="180" />
+    </svg>
+
+    <!-- <iframe class="spotify" id="spotify"></iframe> -->
+    <iframe class = "spotify" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7xmpNYZ15D6b43BHzYQCLt?utm_source=generator" width="20%" height="352px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+    <!-- <iframe src="https://youtu.be/B1ijW5-Tm04?feature=shared"></iframe> -->
+<script type="text/javascript" src="/meditate.js"></script>
+</body>
+</html>

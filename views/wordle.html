@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Game</title>
+    <link rel="stylesheet" href="/wordle.css">
+</head>
+<body>
+    <div class="title-container">
+        <p class = "wordle">Wordle</p>
+        <button class="how-to-play"><img src="/wordle/ph_question.png" alt="how to play?"></button>
+    </div>
+
+    <div class="guess-words">
+        <div class="word">
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+        </div>
+        <div class="word">
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+        </div>
+        <div class="word">
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+        </div>
+        <div class="word">
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+        </div>
+        <div class="word">
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+        </div>
+        <div class="word">
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+            <p class="letter-container"></p>
+        </div>
+    </div>
+
+    <div class="keyboard">
+        <div class="first-row">
+            <button class="keyboard-button">q</button>
+            <button class="keyboard-button">w</button>
+            <button class="keyboard-button">e</button>
+            <button class="keyboard-button">r</button>
+            <button class="keyboard-button">t</button>
+            <button class="keyboard-button">y</button>
+            <button class="keyboard-button">u</button>
+            <button class="keyboard-button">i</button>
+            <button class="keyboard-button">o</button>
+            <button class="keyboard-button">p</button>
+        </div>
+        <div class="second-row">
+            <button class="keyboard-button">a</button>
+            <button class="keyboard-button">s</button>
+            <button class="keyboard-button">d</button>
+            <button class="keyboard-button">f</button>
+            <button class="keyboard-button">g</button>
+            <button class="keyboard-button">h</button>
+            <button class="keyboard-button">j</button>
+            <button class="keyboard-button">k</button>
+            <button class="keyboard-button">l</button>
+        </div>
+        <div class="third-row">
+            <button class="keyboard-button">Clear</button>
+            <button class="keyboard-button">z</button>
+            <button class="keyboard-button">x</button>
+            <button class="keyboard-button">c</button>
+            <button class="keyboard-button">v</button>
+            <button class="keyboard-button">b</button>
+            <button class="keyboard-button">n</button>
+            <button class="keyboard-button">m</button>
+            <button class="keyboard-button">Enter</button>
+        </div>
+    </div>
+
+    <div class="how">
+        <div class="how-to-play-container">
+            <p class="how-to-play-title">How to play?</p>
+            <p class="how-to-play-content">You have to guess the hidden word in 6 tries and the color of the letters changes to show how close you are.</p>
+            <p class="how-to-play-content">To start the game, just enter any word, for example:</p>
+            <div class="guess-words">
+                <div class="word">
+                    <p class="letter-container correct">P</p>
+                    <p class="letter-container present">A</p>
+                    <p class="letter-container notpresent">P</p>
+                    <p class="letter-container notpresent">E</p>
+                    <p class="letter-container notpresent">R</p>
+                </div>
+            </div>
+            <div class="explain">
+                <div class="explain-content">
+                    <p class="letter-explain notpresent">E</p>
+                    <p> , </p>
+                    <p class="letter-explain notpresent">R</p>
+                    <p class = "how-to-play-content">aren’t in the target word at all.</p>
+                </div>
+                <div class="explain-content">
+                    <p class="letter-explain present">A</p>
+                    <p class = "how-to-play-content">is in the word but in the wrong spot.</p>
+                </div>
+                <div class="explain-content">
+                    <p class="letter-explain correct">P</p>
+                    <p class = "how-to-play-content"> is in the word and in the correct spot.</p>
+                </div>
+            </div>
+            <p class="how-to-play-content">Another try to find matching letters in the target word.</p>
+            <div class="guess-words">
+                <div class="word">
+                    <p class="letter-container correct">P</p>
+                    <p class="letter-container correct">E</p>
+                    <p class="letter-container correct">A</p>
+                    <p class="letter-container correct">C</p>
+                    <p class="letter-container notpresent">H</p>
+                </div>
+            </div>
+            <p class="how-to-play-content">So Close!</p>
+            <div class="guess-words">
+                <div class="word">
+                    <p class="letter-container correct">P</p>
+                    <p class="letter-container correct">E</p>
+                    <p class="letter-container correct">A</p>
+                    <p class="letter-container correct">C</p>
+                    <p class="letter-container correct">E</p>
+                </div>
+            </div>
+            <p class="how-to-play-content">You Won! &#127942;</p>
+        </div>
+    </div>
+
+    <div class="youwon">
+        <div class="youwon-container">
+            <p class="how-to-play-title">You Won! &#127942;</p>
+            <p class="how-to-play-content">The word was:</p>
+            <div class="correct-word">
+                <div class="random-word word">
+                    <p class="letter-container correct"></p>
+                    <p class="letter-container correct"></p>
+                    <p class="letter-container correct"></p>
+                    <p class="letter-container correct"></p>
+                    <p class="letter-container correct"></p>
+                </div>
+            </div>
+            <a class="how-to-play-content" href = "">Know more about the word</a>
+            <button class = "restart">Restart</button>
+        </div>
+    </div>
+
+    <div class="gameover">
+        <div class="gameover-container">
+            <p class="how-to-play-title">Game Over!</p>
+            <p class="how-to-play-content">The word was:</p>
+            <div class="correct-word">
+                <div class="random-word word">
+                    <p class="letter-container correct"></p>
+                    <p class="letter-container correct"></p>
+                    <p class="letter-container correct"></p>
+                    <p class="letter-container correct"></p>
+                    <p class="letter-container correct"></p>
+                </div>
+            </div>
+            <a class="how-to-play-content" href = "">Know more about the word</a>
+            <button class = "restart">Restart</button>
+        </div>
+    </div>
+
+    <div class="valid">
+        <div class="valid-container">
+            <p class="how-to-play-title">Enter a valid word.</p>
+        </div>
+    </div>
+
+    <script src="/wordle.js"></script>
+</body>
+</html>

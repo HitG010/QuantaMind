@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Challenge</title>
+</head>
+<body>
+    <button class="simon-says">
+        Simon Says
+    </button>
+    <button class="wordle">
+        Wordle
+    </button>
+</body>
+<script>
+    document.querySelector('.simon-says').addEventListener('click', () => {
+        window.location.href = '/dailyChallenges/simonSays';
+    });
+    document.querySelector('.wordle').addEventListener('click', () => {
+        window.location.href = '/dailyChallenges/wordle';
+    });
+</script>
+</html>

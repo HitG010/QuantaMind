@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+:root {
+    --screen-width: 100vw;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --screen-width: 768px;
+    }
+}
+
+.title {
+    margin-left: calc((var(--screen-width) - 200px) / 11 + 20px);
+}
+
+body{
+    background-image: url('./meditate/bg.png');
+    background-size: cover;
+    background-color: #1E1E1E;
+}
+
+.title-upper{
+    font-family: "Product Sans Medium", sans-serif;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+.title-lower{
+    font-family: "DM Serif Display", sans-serif;
+    font-size: 60px;
+    color: #FFFFFF;
+}
+
+.title{
+    line-height: 0.2;
+    margin-top: 80px;
+}
+
+.container{
+    display: flex;
+    user-select: none;
+
+}
+
+.categories{
+    display: flex;
+    justify-content: left;
+}
+.categories-container{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-left: calc((var(--screen-width) - 200px) / 11);
+
+}
+
+.select{
+    font-family: "Product Sans", sans-serif;
+    font-size: 23px;
+    color: rgba(255,255,255,0.50);
+    margin-left: 25px;
+
+}
+
+.category{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Product Sans Medium", sans-serif;
+    color: #FFFFFF;
+    font-size: 30px;
+    padding: 10px 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background-color: rgba(30,30,30,0.50);
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.first-card{
+    width: 140px;
+}
+
+.word{
+    margin-bottom: 18px;
+}
+
+.time-card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: "Product Sans Medium", sans-serif;
+    color: #FFFFFF;
+    font-size: 30px;
+    /* padding: 84px 220px; */
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background-color: rgba(30,30,30,0.50);
+    margin: 0 20px;
+    width: 400px;
+    height: 264.6px;
+    cursor: pointer;
+}
+
+.actual{
+    font-size: 75px;
+    margin: 0 100px;
+    user-select: none;
+}
+
+.actual-time{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+}
+
+.sides{
+    position: relative;
+    padding: 0 20px;
+    color: rgba(255,255,255,0.50);
+    user-select: none;
+}
+
+.minus{
+    left: 5px;
+}
+
+.plus{
+    right: 5px;
+}
+
+.min{
+    color: rgba(255,255,255,0.50);
+    font-size: 25px;
+    margin-top: -10px;
+    user-select: none;
+}
+
+.line{
+    width: 1px;
+    height: 350px;
+    background-color: rgba(255,255,255,0.08);
+    margin: 10px 50px;
+}
+
+.start{
+    font-family: "Product Sans Medium", sans-serif;
+    font-size: 25px;
+    color: #000000;
+    margin-top: 20px;
+    padding: 10px 30px;
+    border-radius: 50px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
+}
+
+.button{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* .minus{
+    color: rgba(255,255,255,0.50);
+} */
+
+.disabled{
+    color: rgba(255,255,255,0.25);
+}
+
+.active{
+    border: 1px solid #FFFFFF;
+}
