@@ -1,5 +1,5 @@
 let started = false;
-let level = 14;
+let level = 0;
 let quesBlock = document.querySelector(".question-block");
 let questionNum = document.querySelector(".question-number");
 let nxtBtn = document.querySelector(".next-btn");
@@ -243,7 +243,7 @@ function progress() {
   let progressNum = document.querySelector(".progress-num");
   let a = ((level - 1) / 15) * 100;
   a = Math.ceil(a);
-  if (prev == a) {
+  if (prev == a && prev != 0) {
     a = 100;
   }
   let i = prev;

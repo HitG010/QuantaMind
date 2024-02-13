@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MindPath</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body class="dark-bg">
     <div class="main">
@@ -51,8 +62,10 @@
                 </div>
               </div>
               <div class="frame-title">Relaxing Music &amp; Articles</div>
-              <div class="red-arrow">
-                <img src="./Assets/red-arrow-right.svg" alt="" />
+              <div class="frame-lower">
+                <div class="red-arrow">
+                  <img src="./Assets/red-arrow-right.svg" alt="" />
+                </div>
               </div>
             </div>
           </div>
@@ -69,16 +82,17 @@
             </div>
           </div>
           <div class="frame-title">Questionnaire</div>
-          <div class="question-desc frame-disc">Help us know you better</div>
-          <div class="pink-arrow">
-            <img src="./Assets/ep_top-right (1).svg" alt="" />
+
+          <div class="frame-lower">
+            <div class="question-desc frame-disc">Help us know you better</div>
+            <div class="pink-arrow">
+              <img src="./Assets/ep_top-right (1).svg" alt="" />
+            </div>
           </div>
         </div>
         <div class="frame meditate dark-green">
           <div class="frame-upper">
-            <div class="frame-disc">
-              <p>Calm yourself Up ... Start a</p>
-            </div>
+            <div class="frame-disc">Calm yourself Up</div>
             <div class="motivation-img">
               <img src="./Assets/meditationimg.svg" alt="" />
             </div>
@@ -88,29 +102,81 @@
             <br />
             Session
           </div>
-          <div class="green-arrow">
-            <img src="./Assets/red-arrow-right.svg" alt="" />
+          <div class="frame-lower">
+            <div class="green-arrow">
+              <img src="./Assets/red-arrow-right.svg" alt="" />
+            </div>
           </div>
         </div>
         <div class="frame journal dark-purple">
           <div class="frame-upper">
             <div class="frame-disc">
-              <p>Express Your Feelings <br />of the day!</p>
+              Express Your Feelings <br />of the day!
             </div>
             <div class="streak">
               <img src="./Assets/ion_journal-outline.svg" alt="" />
             </div>
           </div>
           <div class="frame-title">Your Journal</div>
-          <div class="journal-desc frame-disc">Help us analyse your mood</div>
-          <div class="purple-plus">
-            <img src="./Assets/ph_plus.svg" alt="" />
+          <div class="frame-lower">
+            <div class="journal-desc frame-disc">Help us analyse your mood</div>
+            <div class="purple-plus">
+              <img src="./Assets/ph_plus.svg" alt="" />
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="emotions">
       <button>Log your Emotions</button>
+    </div>
+    <div class="form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="flexSwitchCheckDefault"
+      />
+      <label class="form-check-label" for="flexSwitchCheckDefault"
+        >Default switch checkbox input</label
+      >
+    </div>
+    <div class="form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="flexSwitchCheckChecked"
+        checked
+      />
+      <label class="form-check-label" for="flexSwitchCheckChecked"
+        >Checked switch checkbox input</label
+      >
+    </div>
+    <div class="form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="flexSwitchCheckDisabled"
+        disabled
+      />
+      <label class="form-check-label" for="flexSwitchCheckDisabled"
+        >Disabled switch checkbox input</label
+      >
+    </div>
+    <div class="form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="flexSwitchCheckCheckedDisabled"
+        checked
+        disabled
+      />
+      <label class="form-check-label" for="flexSwitchCheckCheckedDisabled"
+        >Disabled checked switch checkbox input</label
+      >
     </div>
     <button class="themeBtn">Change Mode</button>
   </body>

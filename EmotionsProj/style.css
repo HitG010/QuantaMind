@@ -65,12 +65,13 @@ body {
   width: 100%;
   height: 70px;
   display: flex;
+  justify-content: space-between;
 }
 
 .meter-disc {
   height: 100%;
   width: 65%;
-  padding: 5px 20px 10px 30px;
+  padding: 15px 20px 0px 30px;
   /* background-color: white; */
 }
 
@@ -105,12 +106,25 @@ body {
 }
 
 .relax {
+  height: 100%;
+  width: 100%;
   background-image: url(./Assets/Rectangle\ 4.svg);
 }
 .frame {
-  width: 344px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  justify-content: space-between;
+  background-repeat: no-repeat;
   height: 186px;
   margin: 10px;
+  width: 344px;
+}
+
+.frame-lower {
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .block-2 {
@@ -125,7 +139,7 @@ body {
 }
 
 .journal .frame-upper {
-  padding: 20px 20px 0 25px;
+  padding: 10px 20px 0 25px;
 }
 
 .journal .frame-title {
@@ -136,7 +150,7 @@ body {
   align-items: center;
   height: 25%;
   justify-content: space-between;
-  padding: 10px 20px 0 25px;
+  padding: 20px 20px 0 25px;
 }
 
 .frame-disc {
@@ -172,23 +186,27 @@ body {
   padding: 5px;
 }
 
+.questions .frame-lower {
+  height: 70px;
+}
 .red-arrow {
   width: 107px;
   height: 38px;
   flex-shrink: 0;
   border-radius: 32px;
   background: rgba(255, 174, 165, 0.5);
-  position: relative;
-  left: 238px;
+  /* position: relative;
+  left: 238px; */
 }
 
 .pink-arrow {
   border-radius: 50%;
   background-color: rgba(254, 215, 195, 0.5);
   width: 70px;
-  position: relative;
+  /* margin-right: 10px; */
+  /* position: relative;
   left: 270px;
-  bottom: 70px;
+  bottom: 70px;*/
   height: 70px;
 }
 
@@ -200,25 +218,33 @@ body {
   margin: 3px 30px 10px;
 }
 
+.meditate .frame-upper {
+  padding-top: 0;
+}
+
+.meditate .frame-lower {
+  height: 46px;
+}
+
 .green-arrow {
   width: 107px;
   height: 46px;
   flex-shrink: 0;
   border-radius: 32px;
   background: rgba(204, 226, 203, 0.5);
-  position: relative;
+  /* position: relative;
   bottom: 10px;
-  left: 238px;
+  left: 238px; */
 }
 
 .green-arrow img {
   padding: 6px 30px 10px;
 }
 .question-desc {
-  padding: 30px 27px;
+  padding: 10px 20px;
 }
 .journal-desc {
-  padding: 5px 27px;
+  padding: 0 27px;
 }
 
 .ques-img {
@@ -228,15 +254,19 @@ body {
   flex: 1;
 }
 
+.journal .frame-lower {
+  height: 65px;
+}
+
 .purple-plus {
   width: 65px;
   height: 65px;
   flex-shrink: 0;
   border-radius: 20px;
   background: rgba(236, 213, 227, 0.5);
-  position: relative;
+  /* position: relative;
   bottom: 43px;
-  left: 280px;
+  left: 280px; */
 }
 
 .purple-plus img {
