@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
+body{
+    background-image: url('./img/bg.png');
+    background-size: cover;
+    background-color: #1E1E1E;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --screen-width: 768px;
+    }
+}
+
+.category-title {
+    margin-left: calc((var(--screen-width) - 200px) / 11 + 20px);
+}
+
+.minutes{
+    display: none;
+}
+
+.duration{
+    color: #fff;
+}
+
+.category-title {
+    color: #fff;
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 60px;
+    display: inline;
+}
+
+.title-container {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: baseline;
+    gap: 20px;
+    user-select: none;
+    line-height: 50%;
+}
+
+.duration{
+    font-family: 'Product Sans', sans-serif;
+    font-size: 25px;
+    color: #ffffff50;
+}
+
+.timer{
+    poisition: absolute;
+    font-family: 'Product Sans', sans-serif;
+    font-size: 200px;
+    color: #ffffff;
+    line-height : 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:15px;
+    user-select: none;
+}
+
+.buttons-tray {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    scale: 0.85;
+}
+
+.button {
+    background-color: #ffffff05;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.main-circle {
+    display: none;
+}
+
+.main-circle circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: transparent;
+    opacity: 20%;
+    stroke: white;
+    stroke-width: 15;
+    stroke-dasharray: 600;
+    stroke-dashoffset: 6000;
+    stroke-linecap: round;
+
+    display: none;
+    /* animate-duration: 50s;
+    animation-name: rotate;
+    animation-duration: 50s;
+    animation-timing-function: linear;
+    */
+}
+  
+@keyframes rotate {
+to {
+    stroke-dashoffset: 0;
+}
+}
+
+.back-circle{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    fill: transparent;
+    stroke: white;
+    stroke-width: 15;
+    /* opacity: 0%; */
+    display: none;
+}
+
+.spotify{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 30px;
+    cursor: pointer;
+}
