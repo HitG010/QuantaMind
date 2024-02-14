@@ -1,0 +1,81 @@
+@import url("https://fonts.cdnfonts.com/css/product-sans");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Figtree:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+
+.dark-bg {
+  background-image: url(./Assets/bg.png);
+  background-color: #1e1e1e;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.main {
+  font-family: "Product Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0;
+  margin-top: 10vh;
+}
+
+.main-upper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-upper .title {
+  font-family: "DM Serif Display";
+  font-size: 50px;
+  color: #fff;
+}
+
+.games-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 3;
+  justify-content: space-around;
+}
+
+.game-tile {
+  display: flex;
+  margin: 20px;
+  background-color: rgba(217, 217, 217, 0.05);
+  width: 380px;
+  height: 440px;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.game-upper {
+  display: flex;
+  justify-content: center;
+  /* flex: 2; */
+}
+
+.game-title {
+  font-family: "Product Sans Medium", sans-serif;
+  font-size: 40px;
+  color: #fff;
+}
+
+.play {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-family: "Product Sans", sans-serif;
+  font-size: 30px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 60px;
+  padding: 15px 120px 15px 120px;
+  cursor: pointer;
+}
+
+.play:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
