@@ -52,6 +52,13 @@
   padding: 20px;
   transition: 0.5s;
 }
+
+@media (min-width: 1000px) {
+  .game-tile {
+    width: 400px;
+    height: 460px;
+  }
+}
 @media (min-width: 1600px) {
   .game-tile {
     height: 400px;
@@ -97,7 +104,7 @@
   display: flex;
   justify-content: center;
   align-content: center;
-  font-family: "Product Sans", sans-serif;
+  font-family: "Product Sans Medium", sans-serif;
   font-size: 30px;
   color: #fff;
   background-color: rgba(255, 255, 255, 0.25);
