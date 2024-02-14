@@ -29,6 +29,7 @@
   font-family: "DM Serif Display";
   font-size: 50px;
   color: #fff;
+  text-align: center;
 }
 
 .games-container {
@@ -49,8 +50,26 @@
   justify-content: space-around;
   align-items: center;
   padding: 20px;
+  transition: 0.5s;
 }
-
+@media (min-width: 1600px) {
+  .game-tile {
+    height: 400px;
+    width: 700px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+  .game-upper .game-img img {
+    height: 300px;
+    width: 300px;
+  }
+  .play {
+    padding: 15px 200px 15px 200px;
+  }
+  .game-title {
+    font-size: 60px;
+  }
+}
 .game-upper {
   display: flex;
   justify-content: center;
@@ -61,6 +80,17 @@
   font-family: "Product Sans Medium", sans-serif;
   font-size: 40px;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.game-lower {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
 }
 
 .play {
