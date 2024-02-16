@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    
+    <form id="signup-form">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <button type="submit">Sign Up</button>
+    </form>
+    
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+          apiKey: "AIzaSyC10RCqTc6T7aLUUKWO3BNzg6pyvx1qpME",
+          authDomain: "quantamind-e099e.firebaseapp.com",
+          projectId: "quantamind-e099e",
+          storageBucket: "quantamind-e099e.appspot.com",
+          messagingSenderId: "553696871512",
+          appId: "1:553696871512:web:afbde323c3d269c84a762d",
+          measurementId: "G-PBQDQ8EPD5"
+        };
+        firebase.initializeApp(firebaseConfig);
+        
+        // Get form element
+        var signupForm = document.getElementById('signup-form');
+        
+        // Add event listener to form submission
+        signupForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting
+            
+            // Get user input
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            
+            // Create user with email and password
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then(function(userCredential) {
+                    // User signed up successfully
+                    var user = userCredential.user;
+                    console.log('User signed up:', user);
+                    // Redirect to another page or perform additional actions
+                    window.location.href = "/";
+                })
+                .catch(function(error) {
+                    // Handle errors
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.error('Sign up error:', errorCode, errorMessage);
+                });
+        });
+    </script>
+</body>
+</html>

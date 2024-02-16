@@ -1,10 +1,9 @@
-@import url("https://fonts.cdnfonts.com/css/product-sans");
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Figtree:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
 
 .dark-bg {
-  background-image: url(./Assets/bg.png);
+  background-image: url(./gamesDashboard/bg.png);
   background-color: #1e1e1e;
   background-size: cover;
   background-repeat: no-repeat;
@@ -13,9 +12,9 @@
   font-family: "Product Sans", sans-serif;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 90vh;
   padding: 0;
-  margin-top: 10vh;
+  /* margin-top: 10vh; */
 }
 
 .main-upper {
@@ -55,8 +54,8 @@
 
 @media (min-width: 1000px) {
   .game-tile {
-    width: 400px;
-    height: 460px;
+    width: 380px;
+    height: 440px;
   }
 }
 @media (min-width: 1600px) {
@@ -101,6 +100,7 @@
 }
 
 .play {
+  border: none;
   display: flex;
   justify-content: center;
   align-content: center;

@@ -12,6 +12,11 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, 'Public')));
 
+app.get('/signup', (req, res) => {
+  console.log('Signup Page Pe aa gya bhai Tu!');
+  res.sendFile(__dirname + '/views/signup.html');
+});
+
 app.get('/', (req, res) => {
     console.log('Home Page Pe aa gya bhai Tu!');
     res.sendFile(__dirname + '/views/homepage.html');
@@ -41,7 +46,7 @@ app.get('/analytics', (req, res) => {
 
 app.get('/dailyChallenges', (req, res) => {
   console.log('challenges Page Pe aa gya bhai Tu!');
-  res.sendFile(__dirname + '/views/dailyChallenges.html');
+  res.sendFile(__dirname + '/views/gamesDashboard.html');
 });
 
 app.get('/dailyChallenges/simonSays', (req, res) => {

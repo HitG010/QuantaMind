@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Games Selection</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/gamesDashboard.css" />
   </head>
   <body class="dark-bg">
     <div class="main">
@@ -15,26 +15,28 @@
         <div class="game-tile">
           <div class="game-upper">
             <div class="game-img">
-              <img src="./assets/SimonSaysMini.svg" alt="" />
+              <img src="/gamesDashboard/SimonSaysMini.svg" alt="" />
             </div>
           </div>
           <div class="game-lower">
             <div class="game-title">Simon Says</div>
-            <div class="play">Play</div>
+            <button class="play" id="simon-says">Play</button>
           </div>
         </div>
         <div class="game-tile">
           <div class="game-upper">
             <div class="game-img">
-              <img src="./assets/wordleMini.svg" alt="" />
+              <img src="/gamesDashboard/wordleMini.svg" alt="" />
             </div>
           </div>
           <div class="game-lower">
             <div class="game-title">Wordle</div>
-            <div class="play">Play</div>
+            <button class="play" id="wordle">Play</button>
           </div>
         </div>
       </div>
     </div>
+
+    <script src="/gamesDashboard.js"></script>
   </body>
 </html>
