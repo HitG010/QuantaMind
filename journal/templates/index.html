@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Emotions</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <input type="text" id="input" />
+    <button onclick="sendData()">Send Data</button>
+    <div id="output"></div>
+    <script>
+      function sendData() {
+        var value = document.getElementById("input").value;
+        $.ajax({
+          url: "/emotions",
+          type: "POST",
+          data: { data: value },
+          success: function (response) {
+            console.log(response);
+            document.getElementById(
+              "output"
+            ).innerHTML = `${response.label} and ${response.score}`;
+          },
+          error: function (error) {
+            console.log(error);
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
