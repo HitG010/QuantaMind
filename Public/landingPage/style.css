@@ -1,0 +1,403 @@
+/* @import url("https://fonts.cdnfonts.com/css/product-sans");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Figtree:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"); */
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.nav-bar {
+  width: 100%;
+  height: 10%;
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-bar-left {
+  margin-left: 40px;
+}
+
+.login-signup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-signup div {
+  width: 100px;
+  height: 40px;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  /* margin-right: 20px; */
+  font-size: 18px;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: "Product Sans Medium", sans-serif;
+}
+
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1e1e1e;
+  background-color: #fff;
+  margin-right: 40px;
+  margin-left: 20px;
+  font-family: "Product Sans Medium", sans-serif;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background-image: url("./assets/darkBg.png");
+  background-color: #1e1e1e;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* padding: 30px; */
+}
+.main-upper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 70px;
+  align-items: center;
+  height: 37%;
+  width: 100%;
+}
+
+.main-title,
+.main-disc {
+  font-family: "Product Sans Medium", sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+.main-title {
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.main-disc {
+  font-size: 20px;
+  font-weight: 500;
+  /* margin-top: 20px; */
+  line-height: 25px;
+}
+
+.get-started {
+  width: 200px;
+  height: 50px;
+  border: 2px solid #fff;
+  background-color: #fff;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Product Sans Medium", sans-serif;
+  color: #000;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.main-lower {
+  display: flex;
+  height: 37vh;
+  width: 100%;
+  justify-content: space-around;
+  align-items: flex-end;
+  /* padding: 2%; */
+}
+
+.main-lower-mid {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 23%;
+}
+.fact,
+.explore,
+.feel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 10px;
+  border-radius: 17px;
+  width: 18%;
+}
+
+.fact {
+  background-color: #ffdee6;
+}
+
+.explore {
+  background-color: #ffc775;
+  height: 100%;
+}
+
+.feel {
+  background-color: #9e7cff;
+  height: 40%;
+  width: 94%;
+  padding: 3%;
+}
+
+.fact-title,
+.explore-title {
+  font-size: 25px;
+  font-weight: 700;
+  color: #000;
+  margin-left: 20px;
+}
+
+.fact-title {
+  font-family: "Product Sans Medium", sans-serif;
+}
+
+.explore-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 35px;
+}
+
+.feel-title {
+  font-family: "Product Sans Medium", sans-serif;
+  font-size: 25px;
+  color: #fff;
+  margin-left: 10px;
+}
+.fact-title span {
+  font-family: "DM Serif Display", serif;
+  font-size: 55px;
+}
+
+.fact-disc {
+  font-family: "Product Sans Medium", sans-serif;
+  font-size: 20px;
+  color: #000;
+  margin: 20px;
+  font-weight: 600;
+}
+
+.fact-button,
+.explore-button,
+.feel-button {
+  width: 90%;
+  height: 35px;
+  border: 1px solid #000;
+  font-weight: 600;
+  display: flex;
+  font-family: "Product Sans Medium", sans-serif;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 15px;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.feel-button {
+  width: 90%;
+}
+
+.fact-button div,
+.explore-button div,
+.feel-button div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
+  border-radius: 15px;
+}
+
+.explore-button div {
+  background-color: #ffc775;
+}
+
+.feel-button div {
+  background-color: #9e7cff;
+}
+.priority {
+  background-image: url("./assets/priority.png");
+  height: 40%;
+  width: 22%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.priority-text {
+  font-size: 35px;
+}
+
+.mind {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 16px;
+  margin-top: 20px;
+}
+
+.mind-title {
+  font-family: "Product Sans Medium", sans-serif;
+  font-size: 21px;
+  color: #000;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.empower {
+  height: 60%;
+  margin: 10vh;
+  background-image: url("./assets/smilies.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #ffffc1;
+  border-radius: 40px;
+  padding: 10vh 5vh 10vh 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.empower .title {
+  font-family: "DM Serif Display", serif;
+  font-size: 60px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.empower .disc {
+  font-family: "Product Sans Medium", sans-serif;
+  font-size: 23px;
+  color: #000;
+  text-align: center;
+  line-height: 30px;
+  font-weight: 600;
+}
+
+.empower .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  color: #fff;
+  background-color: #000;
+  border-radius: 25px;
+  font-family: "Product Sans Medium", sans-serif;
+  cursor: pointer;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 80%;
+  width: 100%;
+  /* margin-top: 10vh; */
+  margin-bottom: 10vh;
+}
+
+.services > .title {
+  font-family: "Product Sans Medium", sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.services-cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 60%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 22%;
+  border-radius: 40px;
+  padding: 20px;
+}
+
+.services .card .title {
+  font-family: "DM Serif Display", serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #000;
+}
+
+.services .card .disc {
+  font-family: "Product Sans Medium", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15%;
+}
+
+.services .card img {
+  height: 20%;
+  width: 25%;
+}
+
+.services .tools {
+  background-color: #ff8ed3;
+}
+.services .monitor {
+  background-color: #6cfbbf;
+}
+.services .resource {
+  background-color: #81d2ff;
+}
+
+.services .resource .disc {
+  margin-bottom: 20%;
+  margin-top: 10%;
+}
+
+.services .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 55px;
+  background-color: #fff;
+  font-family: "Product Sans Medium", sans-serif;
+  border-radius: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 40px;
+}
