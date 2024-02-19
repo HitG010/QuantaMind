@@ -1,65 +1,113 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Sign Up</title>
-    <!-- Firebase CDN -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-</head>
-<body>
-    <h1>Sign Up</h1>
-    
-    <form id="signup-form">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        
-        <button type="submit">Sign Up</button>
-    </form>
-    
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuantaMind</title>
+    <link rel="stylesheet" href="/signup.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-left">
+        <div class="logo">
+          <img src="/signUp/quantamind (1) 1.png" alt="" />
+          <div>QUANTAMIND</div>
+        </div>
+      </div>
+
+      <div class="main-right">
+        <div class="signup-page">
+          <div class="signup-title">
+            Sign Up <br />
+            <span>Create an account</span>
+          </div>
+          <div class="third-party">
+            <div class="third-party-icons">
+              <div class="icon">
+                <img src="/signUp//logo_googleg_48dp.png" alt="" />
+              </div>
+              <div class="icon">
+                <img src="/signUp/Apple_logo_black.png" alt="" />
+              </div>
+              <div class="icon">
+                <img src="/signUp/f_logo_RGB-Blue_58.png.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="or">
+            <div class="line"></div>
+            &nbsp;&nbsp;Or&nbsp;&nbsp;
+            <div class="line"></div>
+          </div>
+          <div class="disc">
+            Sign up with your email <br />
+            Already have an account? <a href="/login">Sign In</a>
+          </div>
+          <form id="signupForm">
+            <div class="input">
+              <label for="Name">Name</label>
+              <input type="text" id="Name" />
+            </div>
+            <div class="input">
+              <label for="email">Email address</label>
+              <input type="text" id="email" />
+            </div>
+            <div class="input">
+              <label for="password">Password</label>
+              <input type="password" id="password" />
+            </div>
+            <!-- <div class="input">
+              <label for="password">Confirm Password</label>
+            <input type="password" id="confirm-password" />
+            </div> -->
+
+            <div class="terms">
+              <input type="checkbox" required/>
+              By signing in to QuantaMind, you agree to our Terms and Privacy
+              Policy.
+            </div>
+            <button class="btn">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <script>
-        // Initialize Firebase
-        const firebaseConfig = {
-          apiKey: "AIzaSyC10RCqTc6T7aLUUKWO3BNzg6pyvx1qpME",
-          authDomain: "quantamind-e099e.firebaseapp.com",
-          projectId: "quantamind-e099e",
-          storageBucket: "quantamind-e099e.appspot.com",
-          messagingSenderId: "553696871512",
-          appId: "1:553696871512:web:afbde323c3d269c84a762d",
-          measurementId: "G-PBQDQ8EPD5"
-        };
-        firebase.initializeApp(firebaseConfig);
-        
-        // Get form element
-        var signupForm = document.getElementById('signup-form');
-        
-        // Add event listener to form submission
-        signupForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form from submitting
-            
-            // Get user input
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-            
-            // Create user with email and password
-            firebase.auth().createUserWithEmailAndPassword(email, password)
-                .then(function(userCredential) {
-                    // User signed up successfully
-                    var user = userCredential.user;
-                    console.log('User signed up:', user);
-                    // Redirect to another page or perform additional actions
-                    window.location.href = "/";
-                })
-                .catch(function(error) {
-                    // Handle errors
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    console.error('Sign up error:', errorCode, errorMessage);
-                });
-        });
-    </script>
-</body>
+      // Get form element
+      var signupForm = document.getElementById('signupForm');
+      
+      // Add event listener to form submission
+      signupForm.addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent form from submitting
+          
+          // Get user input
+          var name = document.getElementById('Name').value;
+          var email = document.getElementById('email').value;
+          var password = document.getElementById('password').value;
+          
+          fetch('/signup', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ name: name, email: email, password: password })
+          })
+          .then(response => {
+            // console.log(response.body);
+              // Handle response
+              if (response.status === 200) {
+                  // Redirect to the dashboard
+                  window.location.href = '/';
+              } else {
+                  // Handle error
+                  console.error('Error:', response);
+              }
+          })
+          .catch(error => {
+              // Handle error
+              console.error('Error:', error);
+          });
+      });
+  </script>
+  </body>
 </html>

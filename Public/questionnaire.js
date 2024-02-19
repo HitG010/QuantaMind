@@ -289,8 +289,35 @@ function finished() {
       `thanks for filling the form\n helpQuotient = ${helpQuotient}\nmentalWellBeingScore = ${mentalWellBeingScore}`
     );
   }, 1000);
+  sendFormData();
 }
 
 function check() {
   nxtBtn.classList.remove("disabled-btn");
+}
+
+function sendFormData() {
+  const data = {
+    mentalWellBeingScore,
+    helpQuotient
+  };
+
+  fetch('/questionnaire', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => {
+      if (response.status === 200) {
+        console.log('Data sent successfully');
+        window.location.href = '/';
+      } else {
+        console.error('Failed to send data');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
 }

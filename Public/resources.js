@@ -40,3 +40,8 @@ function animation() {
 }
 setInterval(scrolling, 10000);
 // scrolling();
+
+let quotesBtn = document.querySelector('.quotes');
+quotesBtn.addEventListener('click', () => {
+  window.location.href = '/resources/quotes';
+});

@@ -48,7 +48,6 @@ body {
 }
 
 .timer {
-  position: absolute;
   font-family: "Product Sans", sans-serif;
   font-size: 200px;
   color: #ffffff;

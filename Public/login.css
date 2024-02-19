@@ -14,7 +14,7 @@ body {
   justify-content: center;
   align-items: center;
   flex: 2;
-  background-image: url("./assets/Frame\ 105.png");
+  background-image: url("/logIn/Frame\ 105.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
