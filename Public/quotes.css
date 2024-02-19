@@ -1,7 +1,16 @@
-@import url("https://fonts.cdnfonts.com/css/product-sans");
-@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Figtree:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body {
+  background-color: #1e1e1e;
+  background-image: url("/Quotes/bg.png");
+  background-size: cover;
+}
 
 .main {
   display: flex;
@@ -9,11 +18,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #1e1e1e;
-}
-
-body {
-  background-image: url("./assets/pinkBlut.svg");
 }
 
 .main-upper {
@@ -21,12 +25,12 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 4rem;
 }
 
 .quote-title {
   font-size: 3rem;
   color: #fff;
-  font-weight: 700;
   font-family: "DM Serif Display", serif;
   text-align: center;
   padding: 1rem;
@@ -44,14 +48,16 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem;  
+  width: 75%;
 }
 
 .quote {
   text-align: center;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   color: #fff;
-  font-family: "DM Serif Display", serif;
+  font-family: "Product Sans Medium", serif;
+
 }
 
 .author {
@@ -59,4 +65,5 @@ body {
   color: #fff;
   font-family: "Product Sans", sans-serif;
   text-align: center;
+  margin-top: 1rem;
 }

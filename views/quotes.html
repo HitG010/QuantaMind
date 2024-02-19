@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Today's Quote</title>
+    <link rel="stylesheet" href="/quotes.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-upper">
+        <div class="quote-title">Today's Quote</div>
+        <div class="quote-text">Quotes that help you stay motivated!</div>
+      </div>
+      <div class="main-quote">
+        <div class="quote"></div>
+        <div class="author"></div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="/quotes.js"></script>
+    <script>
+      async function getQuote() {
+        try {
+          const config = {
+            headers: {
+              'X-Api-Key': 'Abk6O3ZflVme77jKKoQ8JA==nvZxLgcraAes61GE'
+            },
+          };
+          let response = await axios.get("https://api.api-ninjas.com/v1/quotes?category=inspirational", config);
+          console.log(response);
+          return response;
+        } catch (error) {
+          console.log(error);
+          return "An error occurred";
+        }
+      }
+
+      getQuote().then((response) => {
+        console.log(response.data[0]);
+        document.querySelector(".quote").innerText = response.data[0].quote;
+        document.querySelector(".author").innerText = response.data[0].author;
+      });
+    </script>
+  </body>
+</html>
