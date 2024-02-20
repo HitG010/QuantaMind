@@ -5,6 +5,9 @@ let userSeq = [];
 let btnClass = ["yellow", "red", "green", "blue"];
 let btns = document.querySelectorAll(".btn");
 let counter = document.querySelector(".streak1");
+let dailyStreak = document.querySelector(".dailyStreak");
+let isSimonSaysPlayed = document.querySelector(".isSimonSaysPlayed").innerText;
+
 
 document.addEventListener("keypress", function () {
   if (started === false) {
@@ -108,5 +111,17 @@ function btnPress() {
     level = 0;
     userLvl = 0;
     started = false;
+    if(isSimonSaysPlayed === "false"){
+      dailyStreak.innerText = parseInt(dailyStreak.innerText) + 1;
+      fetch('/dailyChallenges/simonSays', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({dailyStreak: parseInt(dailyStreak.innerText), isSimonSaysPlayed: true})
+      });
+      isSimonSaysPlayed = true;
+    }
+    
   }
 }

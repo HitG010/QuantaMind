@@ -309,7 +309,7 @@ function sendFormData() {
     },
     body: JSON.stringify(data)
   })
-    .then(response => {
+    .then((response) => {
       if (response.status === 200) {
         console.log('Data sent successfully');
         window.location.href = '/';
