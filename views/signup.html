@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QuantaMind</title>
-    <link rel="stylesheet" href="/signup.css" />
+    <link rel="stylesheet" href="/Public/signup.css" />
   </head>
   <body>
-    <div class="main">
+    <div class="main dark">
       <div class="main-left">
         <div class="logo">
-          <img src="/signUp/quantamind (1) 1.png" alt="" />
+          <img src="/Public/signUp/quantamind (1) 1.png" alt="" />
           <div>QUANTAMIND</div>
         </div>
       </div>
@@ -24,13 +24,13 @@
           <div class="third-party">
             <div class="third-party-icons">
               <div class="icon">
-                <img src="/signUp//logo_googleg_48dp.png" alt="" />
+                <img src="/Public/signUp//logo_googleg_48dp.png" alt="" />
               </div>
               <div class="icon">
-                <img src="/signUp/Apple_logo_black.png" alt="" />
+                <img src="/Public/logIn/AppleLogoWhite.png" alt="" />
               </div>
               <div class="icon">
-                <img src="/signUp/f_logo_RGB-Blue_58.png.png" alt="" />
+                <img src="/Public/signUp/f_logo_RGB-Blue_58.png.png" alt="" />
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@
             </div> -->
 
             <div class="terms">
-              <input type="checkbox" required/>
+              <input type="checkbox" required />
               By signing in to QuantaMind, you agree to our Terms and Privacy
               Policy.
             </div>
@@ -74,40 +74,44 @@
 
     <script>
       // Get form element
-      var signupForm = document.getElementById('signupForm');
-      
+      var signupForm = document.getElementById("signupForm");
+
       // Add event listener to form submission
-      signupForm.addEventListener('submit', function(event) {
-          event.preventDefault(); // Prevent form from submitting
-          
-          // Get user input
-          var name = document.getElementById('Name').value;
-          var email = document.getElementById('email').value;
-          var password = document.getElementById('password').value;
-          
-          fetch('/signup', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ name: name, email: email, password: password })
-          })
-          .then(response => {
+      signupForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form from submitting
+
+        // Get user input
+        var name = document.getElementById("Name").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        fetch("/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            password: password,
+          }),
+        })
+          .then((response) => {
             // console.log(response.body);
-              // Handle response
-              if (response.status === 200) {
-                  // Redirect to the dashboard
-                  window.location.href = '/';
-              } else {
-                  // Handle error
-                  console.error('Error:', response);
-              }
-          })
-          .catch(error => {
+            // Handle response
+            if (response.status === 200) {
+              // Redirect to the dashboard
+              window.location.href = "/";
+            } else {
               // Handle error
-              console.error('Error:', error);
+              console.error("Error:", response);
+            }
+          })
+          .catch((error) => {
+            // Handle error
+            console.error("Error:", error);
           });
       });
-  </script>
+    </script>
   </body>
 </html>

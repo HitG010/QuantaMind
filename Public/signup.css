@@ -14,7 +14,7 @@ body {
   justify-content: center;
   align-items: center;
   flex: 2;
-  background-image: url("/signUp/Frame\ 105\ \(1\).png");
+  background-image: url("/Public/signUp/Frame\ 105\ \(1\).png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -176,4 +176,42 @@ body {
   100% {
     transform: scale(1);
   }
+}
+
+.dark .main-right {
+  background-color: #1e1e1e;
+}
+
+.dark .signup-page {
+  background-color: #2c2c2c;
+}
+
+.dark .signup-title span,
+.dark .disc,
+.dark .icon,
+.dark .terms,
+.dark .or {
+  color: #fff;
+}
+
+.dark .signup-title,
+.dark .input label {
+  color: #a4a4a4;
+}
+
+.dark .or .line {
+  background-color: rgba(225, 225, 225, 0.25);
+}
+
+.dark input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(225, 225, 225, 0.25);
+  color: #fff;
+}
+
+.dark .btn {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-weight: 600;
 }
