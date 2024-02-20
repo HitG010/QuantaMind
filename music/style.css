@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+
+body{
+    background-image: url('Group 28.png');
+    background-size: cover;
+}
+
+.heading{
+    text-align: center;    
+    margin-top: 150px;
+    margin-bottom: 20px;
+    font-size: 2rem;      
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;    
+}
+
+.subheading{
+    text-align: center;
+    font-family:"Product Sans Medium",sans-serif;   
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 19px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container>iframe{
+    width:25%;
+}
