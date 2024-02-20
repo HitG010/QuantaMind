@@ -1,0 +1,102 @@
+/* @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+/* @import url("https://fonts.cdnfonts.com/css/product-sans");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Figtree:wght@400;500;600;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+
+body{
+    background-image: url('Group 28.png');
+    background-size: cover;
+}
+
+.heading{
+    text-align: center;
+    
+    margin-top: 150px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+       
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    
+}
+
+.subheading{
+    text-align: center;
+    font-family:"Product Sans Medium", sans-serif;
+    
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 19px;
+    justify-content: center;
+    align-items: center;
+    
+    /* width: 100vw; */
+}
+.items{
+    height: 250px;
+    width: 304px;
+      
+    border-radius: 15px;
+    margin: 2px;
+    font-family:"Product Sans Black", sans-serif;
+    color:white;
+    font-size: 1.3rem;
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    background-position: center;
+    position: relative;
+
+    
+   
+    justify-content: center;  
+
+    /* mask-image: linear-gradient( to top,black,transparent); */
+   
+}
+.content{
+
+    height: 84%;
+    border-radius: 15px;
+    background:linear-gradient( to top,rgba(0, 0, 0, 0.498),transparent) ;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+}
+
+
+.item1{
+    background-image: url('img4.webp') ;
+   
+}
+.item2{
+    background-image: url('img5.webp');
+    
+}
+
+.item3{
+    background-image: url('img3.webp');
+    
+}
+
+.item4{
+    background-image: url('img2.png');
+    
+}
+
+.item5{
+    background-image: url('img6.webp');
+    
+}
+
+.item6{
+    background-image: url('img7.webp');
+    
+}
