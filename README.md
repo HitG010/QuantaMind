@@ -3,7 +3,7 @@
 This is Team QuantaMind from first year students of **GDSC DTU**. We worked towards achieving the Sustainable Development Goal (SDG) of ***"Good Health and Well-being"***. QuantaMind is a self-help companion that acts as your online friend which documents every emotion that you experience and helps you overcome your difficulties.
 
 
-![QuantaMind HomePage](/landing-pagedark.png "QuantaMind HomePage")
+![QuantaMind HomePage](/Public/landing-pagedark.png "QuantaMind HomePage")
 
 ## Instructions for running website on LocalHost
 
@@ -35,7 +35,7 @@ This is Team QuantaMind from first year students of **GDSC DTU**. We worked towa
 ### Watch our Introductory Video: https://youtu.be/nC0nxS_cI1Q
 
 
-![QuantaMind Logo](/Group-32.png)
+![QuantaMind Logo](/Public/Group-32.png)
 
 
 
