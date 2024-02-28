@@ -36,12 +36,12 @@ play.addEventListener('click', () => {
         interval = setInterval(updateCountdown, 1000);
         spotifyIframe.contentWindow.postMessage('play', '*');
         mainCircle.style.animation = `rotate ${minutes*60}s linear forwards`;
-        play.innerHTML = '<img src="/img/Frame 66-1.png"></img>';
+        play.innerHTML = '<img src="/meditate/Frame 66-1.png"></img>';
     }
     else{
         clearInterval(interval);
         spotifyIframe.contentWindow.postMessage('pause', '*');
-        play.innerHTML = '<img src="/img/ion_play.png"></img>';
+        play.innerHTML = '<img src="/meditate/ion_play.png"></img>';
         console.log('clear');
         // countdown.innerHTML = `${minutes}:${seconds}`;
     }

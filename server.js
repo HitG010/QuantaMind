@@ -222,6 +222,14 @@ app.get("/resources/quotes", (req, res) => {
   console.log("quotes Page Pe aa gya bhai Tu!");
   res.sendFile(__dirname + "/views/quotes.html");
 });
+app.get("/resources/articles", (req, res) => {
+  console.log("articles Page Pe aa gya bhai Tu!");
+  res.sendFile(__dirname + "/views/articles.html");
+});
+app.get("/resources/music", (req, res) => {
+  console.log("music Page Pe aa gya bhai Tu!");
+  res.sendFile(__dirname + "/views/music.html");
+});
 
 app.use("/meditate", router);
 
@@ -231,8 +239,18 @@ app.get("/journal", (req, res) => {
 });
 
 app.get("/analytics", (req, res) => {
-  console.log("Scores Page Pe aa gya bhai Tu!");
+  console.log("Analytics Page Pe aa gya bhai Tu!");
   res.sendFile(__dirname + "/views/scoreMeters.html");
+});
+app.post("/analytics", (req, res) => {
+  const queryRef = query(usersCollection, where('uid', '==', userId));
+  onSnapshot(queryRef, (querySnapshot) => {
+      const firstDoc = querySnapshot.docs[0];
+      if(firstDoc) {
+        console.log(firstDoc.data());
+          res.send({mentalWellBeingScore: firstDoc.data().mentalWellBeingScore, helpQuotient: firstDoc.data().helpQuotient});
+      }
+  });
 });
 
 app.get("/dailyChallenges", (req, res) => {
@@ -288,6 +306,7 @@ app.get("/dailyStreak", verifyToken, (req, res) => {
   });
   res.json({dailyStreak: dailyStreak});
 });
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
