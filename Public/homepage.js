@@ -1,9 +1,3 @@
-// btn.addEventListener("click", function () {
-//   console.log("you clicked a button");
-//   window.location = "http://127.0.0.1:5000/";
-// });
-
-//adding buttons functionality for redirection of pages
 let questionnaireBtn = document.querySelector(".pink-arrow");
 questionnaireBtn.addEventListener("click", function () {
   window.location.href = "/questionnaire";
@@ -33,3 +27,25 @@ let challengesBtn = document.querySelector(".yellow-arrow");
 challengesBtn.addEventListener("click", function () {
   window.location.href = "/dailyChallenges";
 });
+
+let dailyStreak = document.querySelector(".streak").innerText;
+
+window.onpageshow = function (event) {
+  fetch('/dailyStreak', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-access-token': localStorage.getItem('token')
+    }
+  })
+    .then((response) => {
+      return response.json();
+      // dailyStreak.innerText =(response.dailyStreak) + "🔥";
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+  })
+}

@@ -1,95 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&display=swap");
+
 .dark-bg {
-  background-color: #1e1e1e;
-  background-image: url("/Public/analytics/darkbg.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
-  width: 90%;
-  padding: 5%;
-  height: 80vh;
-}
-
-.main-title {
-  font-size: 4rem;
-  font-family: "DM Serif Display", serif;
-  color: #fff;
-  margin-bottom: 50px;
-}
-
-.main-content {
-  display: flex;
-}
-.main-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: start;
-  height: 100%;
-}
-
-.meter-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px;
-  height: 220px;
-  width: 400px;
-  background-color: rgba(217, 217, 217, 0.05);
-  border-radius: 20px;
-  margin-bottom: 30px;
-}
-
-.meter-image {
-  height: 300px;
-  width: 300px;
-}
-.meter-image img:nth-of-type(2n) {
-  position: relative;
-  z-index: 100;
-  top: -200px;
-  right: 40px;
-  transform: rotate(-140deg);
-}
-
-.meter-title {
-  position: relative;
-  top: -110px;
-  font-family: "Product Sans Medium", sans-serif;
-  font-size: 1.25rem;
-  color: #fff;
-}
-
-.meter-image img:nth-of-type(2n-1) {
-  z-index: 50;
-}
-
-.main-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 50px;
-  padding-left: 50px;
-  background-color: rgba(217, 217, 217, 0.05);
-  border-radius: 20px;
-  width: 60%;
-  margin-bottom: 30px;
-}
-
-.main-right .title {
-  font-family: "Product Sans Medium", sans-serif;
-  font-size: 2rem;
-  color: #fff;
-  margin-bottom: 20px;
-}
-
-#myChart {
-  width: 120%;
-  height: 100%;
-}
+    background-color: #1e1e1e;
+    background-image: url("/analytics/darkbg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    width: 90%;
+    padding: 5%;
+    height: 80vh;
+  }
+  
+  .main-title {
+    font-size: 4rem;
+    font-family: "DM Serif Display", serif;
+    color: #fff;
+    margin-bottom: 50px;
+  }
+  
+  .main-content {
+    display: flex;
+  }
+  .main-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    height: 100%;
+  }
+  
+  .meter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    height: 220px;
+    width: 400px;
+    background-color: rgba(217, 217, 217, 0.05);
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .meter-image {
+    height: 300px;
+    width: 300px;
+  }
+  .meter-image img:nth-of-type(2n) {
+    position: relative;
+    z-index: 100;
+    top: -200px;
+    right: 40px;
+    transform: rotate(-140deg);
+  }
+  
+  .meter-title {
+    position: relative;
+    top: -110px;
+    font-family: "Product Sans Medium", sans-serif;
+    font-size: 1.25rem;
+    color: #fff;
+  }
+  
+  .meter-image img:nth-of-type(2n-1) {
+    z-index: 50;
+  }
+  
+  .main-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 50px;
+    padding-left: 50px;
+    background-color: rgba(217, 217, 217, 0.05);
+    border-radius: 20px;
+    width: 60%;
+    margin-bottom: 30px;
+  }
+  
+  .main-right .title {
+    font-family: "Product Sans Medium", sans-serif;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  #myChart {
+    width: 120%;
+    height: 100%;
+  }

@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
 
 body{
-    background-image: url('Group 28.png');
+    background-color: #1e1e1e;
+    background-image: url('/music/Group 29.png');
     background-size: cover;
+    color: white;
 }
 
 .heading{

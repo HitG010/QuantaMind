@@ -6,8 +6,10 @@ import cors from 'cors';
 import bodyparser from 'body-parser';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { getFirestore, doc, getDoc, collection, query, where } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, getDocs, collection, query, where, onSnapshot } from 'firebase/firestore';
 import { addDoc, updateDoc } from 'firebase/firestore';
+import jwt from 'jsonwebtoken';
+
 
 
 const app = express();
@@ -34,7 +36,8 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 const auth = getAuth();
-let userId;
+let userId="";
+let dailyStreak = 0;
 const authMiddleware = (req, res, next) => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -48,33 +51,42 @@ const authMiddleware = (req, res, next) => {
   });
 };
 
-const db = getFirestore();
-const usersCollection = collection(db, 'users');
+// var jwt = require('jsonwebtoken');
+// var token = jwt.sign({ foo: 'bar' }, 'shhhhh');
+//make a middleware to verify the user token from the loclal storage once the user lands on the home page
+const verifyToken = (req, res, next) => {
+  console.log(req);
+  // read request headers for auth token
+  const token = req.headers['x-access-token'];
+  console.log('token:', token);
 
-// const userExistsMiddleware = (req, res, next) => {
-//   const userId = req.user.uid; // Assuming you have the user ID available in the request object
-//   const userRef = doc(db, 'users', userId);
+  if(token){
+    jwt.verify(token, 'shhhhh', function(err, decoded) {
+      console.log(decoded);
+      if(err){
+        res.redirect('/login');
+      } else {
+        next();
+      }
+    });
+  } else {
+    res.redirect('/login');
+  }
+};
 
-//   getDoc(userRef)
-//     .then((docSnapshot) => {
-//       if (docSnapshot.exists()) {
-//         console.log('User exists in the Firestore database');
-//         res.redirect('/');
-//         next();
-//       } else {
-//         console.log('User does not exist in the Firestore database');
-//         res.redirect('/signup');
+// const checkStreak = (req, res, next) => {
+//   const queryRef = query(usersCollection, where('uid', '==', userId));
+//   onSnapshot(queryRef, (querySnapshot) => {
+//       const firstDoc = querySnapshot.docs[0];
+//       if(firstDoc) {
+//           dailyStreak = firstDoc.data().dailyStreak;
 //       }
-//     })
-//     .catch((error) => {
-//       console.log('Error checking user existence:', error);
-//       res.redirect('/login');
-//     });
+//   });
+//   next();
 // };
 
-// app.use(userExistsMiddleware);
-
-
+const db = getFirestore();
+const usersCollection = collection(db, 'users');
 
 app.get('/signup', (req, res) => {
   console.log('Signup Page Pe aa gya bhai Tu!');
@@ -97,7 +109,12 @@ app.post('/signup', async (req, res) => {
       name: name,
       email: email,
       password: password,
-      uid: uid
+      uid: uid,
+      mentalWellBeingScore: 0,
+      helpQuotient: 0,
+      dailyStreak: 0,
+      isSimonSaysPlayed: false,
+      isWordlePlayed: false
     };
 
     addDoc(usersCollection, newUser)
@@ -133,7 +150,8 @@ app.post('/login', async (req, res) => {
     .then((userCredential) => {
       const user = userCredential.user;
       console.log('User signed in:', user);
-      res.redirect('/');
+      let token = jwt.sign({ user: user}, 'shhhhh');
+      res.json({token: token});
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -149,37 +167,50 @@ app.get("/landing", (req, res) => {
 });
 
 app.get("/", authMiddleware, (req, res) => {
-  console.log("Home Page Pe aa gya bhai Tu!");
-  res.sendFile(__dirname + "/views/homepage.html");
+  const queryRef = query(usersCollection, where('uid', '==', userId));
+
+  onSnapshot(queryRef, (querySnapshot) => {
+      const firstDoc = querySnapshot.docs[0];
+
+        dailyStreak = firstDoc.data().dailyStreak;
+        
+      });
+      
+      console.log("Home Page Pe aa gya bhai Tu!", dailyStreak);
+      res.render(__dirname + "/views/homepage.ejs", {dailyStreak: dailyStreak});
 });
+app.post("/", (req, res) => {
+  res.send({dailyStreak: dailyStreak});
+});
+
 
 app.get("/questionnaire", (req, res) => {
   console.log("Questionnaire Page Pe aa gya bhai Tu!");
   res.sendFile(__dirname + "/views/questionnaire.html");
 });
 app.post("/questionnaire", (req, res) => {
+  console.log(userId);
   const mentalWellBeingScore = req.body.mentalWellBeingScore;
   const helpQuotient = req.body.helpQuotient;
-  // const userRef = doc(db, 'users', userId);
-  const UpdateQuery = query(collection(db, "users"), where("uid", "==", userId));
+
+  const queryRef = query(usersCollection, where('uid', '==', userId));
+  onSnapshot(queryRef, (querySnapshot) => {
+      const firstDoc = querySnapshot.docs[0];
+      if(firstDoc) {
+          updateDoc(firstDoc.ref, dataToUpdate)
+            .then(() => {
+              console.log('Data updated successfully in Firestore');
+              res.redirect('/');
+            })
+            .catch((error) => {
+              console.log('Error updating data in Firestore:', error);
+            });
+      }
+  });
   const dataToUpdate = {
     mentalWellBeingScore: mentalWellBeingScore,
     helpQuotient: helpQuotient
   };
-
-  updateDoc(userRef, dataToUpdate)
-    .then(() => {
-      console.log('Data updated successfully in Firestore');
-      // res.redirect('/');
-      res.sendStatus(200);
-    })
-    .catch((error) => {
-      console.log('Error updating data in Firestore:', error);
-      // res.redirect('/questionnaire');
-      res.sendStatus(500);
-    });
-
-  
 });
 
 app.get("/resources", (req, res) => {
@@ -191,6 +222,14 @@ app.get("/resources/quotes", (req, res) => {
   console.log("quotes Page Pe aa gya bhai Tu!");
   res.sendFile(__dirname + "/views/quotes.html");
 });
+app.get("/resources/articles", (req, res) => {
+  console.log("articles Page Pe aa gya bhai Tu!");
+  res.sendFile(__dirname + "/views/articles.html");
+});
+app.get("/resources/music", (req, res) => {
+  console.log("music Page Pe aa gya bhai Tu!");
+  res.sendFile(__dirname + "/views/music.html");
+});
 
 app.use("/meditate", router);
 
@@ -200,8 +239,18 @@ app.get("/journal", (req, res) => {
 });
 
 app.get("/analytics", (req, res) => {
-  console.log("Scores Page Pe aa gya bhai Tu!");
+  console.log("Analytics Page Pe aa gya bhai Tu!");
   res.sendFile(__dirname + "/views/scoreMeters.html");
+});
+app.post("/analytics", (req, res) => {
+  const queryRef = query(usersCollection, where('uid', '==', userId));
+  onSnapshot(queryRef, (querySnapshot) => {
+      const firstDoc = querySnapshot.docs[0];
+      if(firstDoc) {
+        console.log(firstDoc.data());
+          res.send({mentalWellBeingScore: firstDoc.data().mentalWellBeingScore, helpQuotient: firstDoc.data().helpQuotient});
+      }
+  });
 });
 
 app.get("/dailyChallenges", (req, res) => {
@@ -210,14 +259,54 @@ app.get("/dailyChallenges", (req, res) => {
 });
 
 app.get("/dailyChallenges/simonSays", (req, res) => {
+  let isSimonSaysPlayed = false;
+const queryRef = query(usersCollection, where('uid', '==', userId));
+onSnapshot(queryRef, (querySnapshot) => {
+    const firstDoc = querySnapshot.docs[0];
+    if(firstDoc) {
+        dailyStreak = firstDoc.data().dailyStreak;
+        isSimonSaysPlayed = firstDoc.data().isSimonSaysPlayed;
+    }
+});
+  
   console.log("simon says Page Pe aa gya bhai Tu!");
-  res.sendFile(__dirname + "/views/simonSays.html");
+  res.render(__dirname + "/views/simonSays.ejs", {dailyStreak: dailyStreak, isSimonSaysPlayed: isSimonSaysPlayed});
+});
+app.post("/dailyChallenges/simonSays", (req, res) => {
+  dailyStreak = parseInt(req.body.dailyStreak);
+  const isSimonSaysPlayed = req.body.isSimonSaysPlayed;
+  console.log(dailyStreak);
+  const queryRef = query(usersCollection, where('uid', '==', userId));
+  onSnapshot(queryRef, (querySnapshot) => {
+      const firstDoc = querySnapshot.docs[0];
+      if(firstDoc) {
+          updateDoc(firstDoc.ref, {dailyStreak: dailyStreak, isSimonSaysPlayed: isSimonSaysPlayed})
+            .then(() => {
+              console.log('Data updated successfully in Firestore');
+            })
+            .catch((error) => {
+              console.log('Error updating data in Firestore:', error);
+            });
+      }
+  });
 });
 
 app.get("/dailyChallenges/wordle", (req, res) => {
   console.log("simon says Page Pe aa gya bhai Tu!");
   res.sendFile(__dirname + "/views/wordle.html");
 });
+
+app.get("/dailyStreak", verifyToken, (req, res) => {
+  const queryRef = query(usersCollection, where('uid', '==', userId));
+  onSnapshot(queryRef, (querySnapshot) => {
+      const firstDoc = querySnapshot.docs[0];
+      if(firstDoc) {
+          dailyStreak = firstDoc.data().dailyStreak;
+      }
+  });
+  res.json({dailyStreak: dailyStreak});
+});
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

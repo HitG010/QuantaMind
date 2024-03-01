@@ -39,6 +39,10 @@ body {
   margin-left: 10px;
 }
 
+.dailyStreak {
+  padding: 3px 0px;
+}
+
 .streak1{
   display: flex;
   justify-content: center;

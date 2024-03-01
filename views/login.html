@@ -82,11 +82,28 @@
         })
           .then((response) => {
             // console.log(response.body);
+<<<<<<< HEAD
             // Handle response
             if (response.status === 200) {
               // Redirect to the dashboard
               window.location.href = "/";
             } else {
+=======
+              // Handle response
+              if (response.status === 200) {
+                 
+                  // store the token in the response to the local storage
+                  response.json().then(data => {
+                      localStorage.setItem('token', data.token);
+                      window.location.href = '/';
+                  });
+              } else {
+                  // Handle error
+                  console.error('Error:', response);
+              }
+          })
+          .catch(error => {
+>>>>>>> f95d27aefb42ca541982e90e40b580c10787f697
               // Handle error
               console.error("Error:", response);
             }

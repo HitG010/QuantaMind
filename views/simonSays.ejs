@@ -13,12 +13,12 @@
         <p class="title">Simons Says</p>
         <div class = "deets-container">
           <p class="deets"> Your current streak</p>
-          <div class = "streak">0 &#128293;</div>
+          <div class = "streak"><div class="dailyStreak" style="display: inline-block;"><%= dailyStreak %></div> &#128293;</div>
         </div>
-        <div class = "deets-container">
+        <!-- <div class = "deets-container">
         <p class = "deets"> Hi - Score</p>
         <div class = "streak">&#127942; 0</div>
-      </div>
+      </div> -->
 
       <div class = "info">
         <p class = "info-text">Your Score</p>
@@ -42,6 +42,7 @@
         </div>
       </div>
     </div>
-      <script src="/simonSays.js"></script>
+    <p style="display: none;" class="isSimonSaysPlayed"><%= isSimonSaysPlayed %></p>
+    <script src="/simonSays.js"></script>
   </body>
 </html>
