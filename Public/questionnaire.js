@@ -17,7 +17,7 @@ let questions = [
   "Do you make friends easily? ",
   "What is your current relationship? ",
   "Are you satisfied with your career progress till now? ",
-  "How will your rate yourself on 1 to 10 in terms of religeosity? ",
+  "How will your rate yourself on 1 to 10 in terms of religiosity? ",
   "How will you rate your childhood memories on scale of 1-10",
   "How do you see your future 5 years from now?",
   "Have you had panic attacks in past or past history of substance abuse or an appointment with mutual health spl in the past?",
