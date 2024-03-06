@@ -38,10 +38,19 @@ function animation() {
     }, 2000);
   });
 }
-setInterval(scrolling, 10000);
+setInterval(scrolling, 5000);
 // scrolling();
 
 let quotesBtn = document.querySelector('.quotes');
 quotesBtn.addEventListener('click', () => {
   window.location.href = '/resources/quotes';
+});
+
+let articlesBtn = document.querySelector('.articles');
+articlesBtn.addEventListener('click', () => {
+  window.location.href = '/resources/articles';
+});
+let musicBtn = document.querySelector('.music');
+musicBtn.addEventListener('click', () => {
+  window.location.href = '/resources/music';
 });

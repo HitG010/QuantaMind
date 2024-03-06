@@ -82,8 +82,12 @@
             // console.log(response.body);
               // Handle response
               if (response.status === 200) {
-                  // Redirect to the dashboard
-                  window.location.href = '/';
+                 
+                  // store the token in the response to the local storage
+                  response.json().then(data => {
+                      localStorage.setItem('token', data.token);
+                      window.location.href = '/';
+                  });
               } else {
                   // Handle error
                   console.error('Error:', response);

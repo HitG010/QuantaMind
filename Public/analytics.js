@@ -28,8 +28,26 @@ new Chart("myChart", {
   // },
 });
 
-let mentalWellScore = 25;
-let helpQuotient = 24;
+
+let mentalWellScore;
+let helpQuotient;
+// post request to the server to get the mentalWellBeingScore and helpQuotient of the user
+fetch("/analytics", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "token": 'x-access-token'
+  },
+  body: JSON.stringify({ mentalWellBeingScore: 0, helpQuotient: 0 }),
+})
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    mentalWellScore = data.mentalWellBeingScore;
+    helpQuotient = data.helpQuotient;
+  });
+
+
 
 function rotate(meterPin, final) {
   let pin = document.getElementById(meterPin);
@@ -51,4 +69,6 @@ function caldeg(score, max) {
   return (180 / diff) * (score - 15);
 }
 rotate("meterPin1", caldeg(mentalWellScore, 45));
+
 rotate("meterPin2", caldeg(helpQuotient, 30));
+
