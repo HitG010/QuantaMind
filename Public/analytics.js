@@ -28,6 +28,7 @@ new Chart("myChart", {
   // },
 });
 
+
 let mentalWellScore;
 let helpQuotient;
 // post request to the server to get the mentalWellBeingScore and helpQuotient of the user
@@ -45,6 +46,7 @@ fetch("/analytics", {
     mentalWellScore = data.mentalWellBeingScore;
     helpQuotient = data.helpQuotient;
   });
+
 
 
 function rotate(meterPin, final) {
@@ -67,4 +69,6 @@ function caldeg(score, max) {
   return (180 / diff) * (score - 15);
 }
 rotate("meterPin1", caldeg(mentalWellScore, 45));
+
 rotate("meterPin2", caldeg(helpQuotient, 30));
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics</title>
+    <link rel="stylesheet" href="/Public/analytics.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </head>
+  <body class="dark-bg">
+    <div class="main">
+      <div class="main-title"><i>Your Analytics</i></div>
+      <div class="main-content">
+        <div class="main-left">
+          <div class="meter-container">
+            <div class="meter-image">
+              <img src="/Public/analytics/Ellipse 3.png" alt="" />
+              <img
+                src="/Public/analytics/meter-pin.png"
+                alt=""
+                id="meterPin1"
+              />
+            </div>
+            <div class="meter-title">Mental Well-Being Meter</div>
+          </div>
+          <div class="meter-container">
+            <div class="meter-image">
+              <img src="/Public/analytics/Ellipse 3.png" alt="" />
+              <img
+                src="/Public/analytics/meter-pin.png"
+                alt=""
+                id="meterPin2"
+              />
+            </div>
+            <div class="meter-title">Help Quotient Meter</div>
+          </div>
+        </div>
+        <div class="main-right">
+          <div class="title">Emotional Chart (Weekly)</div>
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+    <script src="/Public/analytics.js"></script>
+  </body>
+</html>
