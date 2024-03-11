@@ -12,9 +12,19 @@ def hello():
 @app.route('/emotions', methods=['POST']) 
 def process(): 
 	data = request.form.get('data') 
-	result = emotion(data) 
+	data = data.split()
+	
+	ans = []
+ 
+	i = 0
+	while i+350<len(data):
+		ans.append(emotion(" ".join(data[i:i+350]))[0]['label'])
+		i+=350
+  
+	ans.append(emotion(" ".join(data[i:]))[0]['label'])
+	string = " ".join(ans)
+	result = emotion(string)
 	return result[0]
-	# return "Hello"
 
 if __name__ == '__main__': 
 	app.run(debug=True) 
