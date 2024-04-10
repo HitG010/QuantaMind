@@ -66,6 +66,7 @@ const verifyToken = (req, res, next) => {
       if(err){
         res.redirect('/login');
       } else {
+        // req.userId = decoded.uid;
         next();
       }
     });
@@ -160,6 +161,9 @@ app.post('/login', async (req, res) => {
       res.redirect('/login');
     });
 });
+
+// const cache = {};
+// userId: dailyStreak
 
 app.get("/landing", (req, res) => {
   console.log("landing Page Pe aa gya bhai Tu!");

@@ -5,27 +5,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
-    <input type="text" id="input" />
-    <button onclick="sendData()">Send Data</button>
-    <div id="output"></div>
-    <script>
-      function sendData() {
-        var value = document.getElementById("input").value;
-        $.ajax({
-          url: "/journal/emotions",
-          type: "POST",
-          data: { data: value },
-          success: function (response) {
-            console.log(response);
-            document.getElementById(
-              "output"
-            ).innerHTML = `${response.label} and ${response.score}`;
-          },
-          error: function (error) {
-            console.log(error);
-          },
-        });
-      }
-    </script>
+    <form action="/emotions" method = "POST">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name = "title"/>
+    <br/>
+    <label for="input">Data:</label>
+    <input type="text" id="input" name = "data"/>
+    <br/>
+    <button type="submit">Send Data</button>
+  </form>
   </body>
 </html>

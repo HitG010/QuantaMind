@@ -282,14 +282,10 @@ function checkAns() {
 }
 
 function finished() {
-  console.log(`mentalWellBeingScore = ${mentalWellBeingScore}`);
-  console.log(`helpQuotient = ${helpQuotient}`);
-  setTimeout(() => {
-    alert(
-      `thanks for filling the form\n helpQuotient = ${helpQuotient}\nmentalWellBeingScore = ${mentalWellBeingScore}`
-    );
-  }, 1000);
+  // console.log(`mentalWellBeingScore = ${mentalWellBeingScore}`);
+  // console.log(`helpQuotient = ${helpQuotient}`);
   sendFormData();
+  window.location.href = '/';
 }
 
 function check() {
@@ -312,7 +308,6 @@ function sendFormData() {
     .then((response) => {
       if (response.status === 200) {
         console.log('Data sent successfully');
-        window.location.href = '/';
       } else {
         console.error('Failed to send data');
       }

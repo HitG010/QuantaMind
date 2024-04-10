@@ -30,22 +30,22 @@ challengesBtn.addEventListener("click", function () {
 
 let dailyStreak = document.querySelector(".streak").innerText;
 
-window.onpageshow = function (event) {
-  fetch('/dailyStreak', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-access-token': localStorage.getItem('token')
-    }
-  })
-    .then((response) => {
-      return response.json();
-      // dailyStreak.innerText =(response.dailyStreak) + "🔥";
-    })
-    .then((data) => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-  })
-}
+// window.onpageshow = function (event) {
+//   fetch('/dailyStreak', {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'x-access-token': localStorage.getItem('token')
+//     }
+//   })
+//     .then((response) => {
+//       return response.json();
+//       // dailyStreak.innerText =(response.dailyStreak) + "🔥";
+//     })
+//     .then((data) => {
+//       console.log(data);
+//     })
+//     .catch(error => {
+//       console.error('Error:', error);
+//   })
+// }
