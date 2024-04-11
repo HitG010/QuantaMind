@@ -15,21 +15,12 @@ This is Team QuantaMind from first year students of **GDSC DTU**. We worked towa
 
 3. `npm install`
 
-4. Install the **Transformers** python library by running the command on a new terminal:
+4. Start the server by running the command:
 
-* `python3 -m pip install transformers`
+* `node index.js` or `nodemon index.js`
 
-5. Start the server by running the command:
 
-* `node server.js`
-
-6. Run the python server by running the command:
-
-* `export FLASK_APP=app.py`
-* `export FLASK_ENV=development`
-* `flask run`
-
-7. Open `localhost:3000` on your browser to visit the website.
+5. Open `localhost:3000` on your browser to visit the website.
 
 
 ### Watch our Introductory Video: https://youtu.be/nC0nxS_cI1Q
