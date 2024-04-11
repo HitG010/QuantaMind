@@ -120,12 +120,13 @@ function btnPress() {
       body: JSON.stringify({}),
     })
       .then((data) => {
-        console.log(data);
-        if(data == 0){
-          dailyStreak.innerText = 1;
+        console.log(data.status);
+        data = data.status;
+        if(data == 200){
+          dailyStreak.innerText = parseInt(dailyStreak.innerText) + 1;
         }
         else{
-          dailyStreak.innerText = parseInt(dailyStreak.innerText) + 1;
+          dailyStreak.innerText = 1;
         }
       });
     

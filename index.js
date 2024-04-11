@@ -7,6 +7,8 @@ import bodyparser from "body-parser";
 import { v4 as uuid4 } from "uuid";
 import pg from "pg";
 import cookieParser from "cookie-parser";
+import bcrypt from "bcrypt";
+import moment from "moment";
 
 const app = express();
 const port = 3000;
@@ -41,14 +43,54 @@ app.post("/signup", async (req, res) => {
   const password = req.body.password;
 
   const uid = uuid4();
-  try {
-    await db.query(
-      `INSERT INTO users (id, name, email, password) VALUES ('${uid}', '${name}', '${email}', '${password}')`
+  // try {
+  //   await db.query(
+  //     `INSERT INTO users (id, name, email, password) VALUES ('${uid}', '${name}', '${email}', '${password}')`
+  //   );
+  // } catch (e) {
+  //   console.log(e);
+  // }
+  // res.redirect("/login");
+  try{
+    const query = await db.query(
+      "SELECT * FROM users WHERE email = $1",
+      [email]
     );
-  } catch (e) {
+    if (query.rows.length === 0) {
+      bcrypt.hash(password, 10, async (err, hash) => {
+        if(err){
+          console.log(err);
+        }
+        else{
+          try {
+            await db.query(
+              `INSERT INTO users (id, name, email, password) VALUES ('${uid}', '${name}', '${email}', '${hash}')`
+            );
+            // insert dailystreak and coins
+            const date = new Date();
+            try{
+              await db.query(
+                `INSERT INTO streaks ( user_id, dailystreak, coins, prevStreakTime) VALUES ('${uid}', 0, 0, '${date.toISOString()}' )`
+              );
+            }
+            catch(e){
+              console.log(e);
+            }
+            res.redirect("/login");
+          } catch (e) {
+            console.log(e);
+          }
+        }
+      });
+    }
+    else {
+      console.log("User already exists");
+      res.redirect("/signup");
+    }
+  }
+  catch(e){
     console.log(e);
   }
-  res.redirect("/login");
 });
 
 app.get("/login", (req, res) => {
@@ -62,16 +104,31 @@ app.post("/login", async (req, res) => {
 
     try {
         const query = await db.query(
-            "SELECT * FROM users WHERE email = $1 AND password = $2",
-            [email, password]
+            "SELECT * FROM users WHERE email = $1",
+            [email]
         );
-        if (query.rows.length === 0) {
-            res.redirect("/login");
-        } else {
+        if (query.rows.length > 0) {
             const user = query.rows[0];
-            const uid = user.id;
-            res.cookie("uid", uid);
-            res.redirect("/");
+            const storedPassword = user.password;
+            bcrypt.compare(password, storedPassword, (err, result) => {
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    if(result){
+                        const uid = user.id;
+                        res.cookie("uid", uid);
+                        res.redirect("/");
+                    }
+                    else{
+                        console.log("Incorrect Password");
+                        res.redirect("/login");
+                    }
+                }
+            });
+        } else {
+            console.log("User does not exist");
+            res.redirect("/login");
         }
     } catch (e) {
             console.log(e);
@@ -85,20 +142,29 @@ app.get("/landing", (req, res) => {
 
 app.get("/", async (req, res) => {
   console.log("Homepage Page Pe aa gya bhai Tu!");
-  try{
-    const user_id = req.cookies.uid;
-    const query = await db.query("SELECT dailystreak FROM streaks WHERE user_id = $1", [user_id]);
-    const dailyStreak = query.rows[0].dailystreak;
-    res.render(__dirname + "/views/homepage.ejs", {
-      dailyStreak: dailyStreak
-    });
+  if(!req.cookies.uid){
+    res.redirect("/landing");
   }
-  catch(e){
-    console.log(e);
+  else{
+    try{
+      const user_id = req.cookies.uid;
+      const query = await db.query("SELECT dailystreak FROM streaks WHERE user_id = $1", [user_id]);
+      const dailyStreak = query.rows[0].dailystreak;
+      res.render(__dirname + "/views/homepage.ejs", {
+        dailyStreak: dailyStreak
+      });
+    }
+    catch(e){
+      console.log(e);
+    }
   }
+  
 });
-app.post("/", (req, res) => {
-//   res.send({ dailyStreak: dailyStreak });
+app.post("/logout", (req, res) => {
+  //delete the user_id cookie and redirect to login page
+  res.clearCookie("uid");
+  res.redirect("/landing");
+
 });
 
 app.get("/questionnaire", (req, res) => {
@@ -215,6 +281,9 @@ app.post("/getEmotions", async (req, res) => {
         const yValues = Array.from(emotionMap.values());
         res.send({ xValues: xValues, yValues: yValues });
     }
+    else{
+        res.send({ xValues: [], yValues: [] });
+    }
     
   }
   catch(e){
@@ -230,10 +299,15 @@ app.post("/analytics", async (req, res) => {
     const user_id = req.cookies.uid;
     try{
         const query = await db.query("SELECT * FROM scores WHERE user_id = $1", [user_id]);
-        const user = query.rows[0];
-        const mentalWellBeingScore = user.mentalwellbeing;
-        const helpQuotient = user.helpquotient;
-        res.json({ mentalWellBeingScore: mentalWellBeingScore, helpQuotient: helpQuotient });
+        if(query.rows.length === 0){
+            res.json({ mentalWellBeingScore: 0, helpQuotient: 0 });
+        }
+        else{
+          const user = query.rows[0];
+          const mentalWellBeingScore = user.mentalwellbeing;
+          const helpQuotient = user.helpquotient;
+          res.json({ mentalWellBeingScore: mentalWellBeingScore, helpQuotient: helpQuotient });
+        }
     }
     catch(e){
         console.log(e);
@@ -283,14 +357,17 @@ app.post("/fetchDate", async (req, res) => {
     }
     else{
         const date = query.rows[0].prevstreaktime;
+
         console.log(date);
-        if(date.toISOString().split("T")[0] === newDate.toISOString().split("T")[0] - 1){
+        const diffInDays = Math.floor((newDate.getTime() - date.getTime()) / (1000 * 60 * 60 * 24));
+        if(diffInDays === 1){
             try{
                 await db.query(
-                    `UPDATE streaks SET dailystreak = dailystreak + 1, prevStreakTime = '${newDate}' WHERE user_id = '${user_id}'`
+                    `UPDATE streaks SET dailystreak = dailystreak + 1, prevStreakTime = '${newDate.toISOString()}' WHERE user_id = '${user_id}'`
                 );
 
-                res.send(1);
+                // res.json("SUCCESS");
+                res.sendStatus(200);
             }
             catch(e){
                 console.log(e);
@@ -299,9 +376,9 @@ app.post("/fetchDate", async (req, res) => {
         else{
             try{
                 await db.query(
-                    `UPDATE streaks SET dailystreak = 1, prevStreakTime = '${newDate}' WHERE user_id = '${user_id}'`
+                    `UPDATE streaks SET dailystreak = 1, prevStreakTime = '${newDate.toISOString()}' WHERE user_id = '${user_id}'`
                 );
-                res.send(0);
+                res.sendStatus(500);
             }
             catch(e){
                 console.log(e);

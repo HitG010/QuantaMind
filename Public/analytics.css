@@ -6,7 +6,17 @@
     background-size: cover;
     background-repeat: no-repeat;
   }
-  
+  #info{
+    width: 90%;
+    padding: 5%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: "Product Sans Medium", sans-serif;
+    color: #fff;
+  }
   .main {
     display: flex;
     flex-direction: column;
@@ -94,4 +104,11 @@
   #myChart {
     width: 120%;
     height: 100%;
+  }
+
+  #notEnoughData{
+    font-size: 2rem;
+    font-family: "Product Sans Medium", sans-serif;
+    color: #fff;
+    padding-top: 20px;
   }
