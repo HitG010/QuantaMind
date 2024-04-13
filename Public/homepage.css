@@ -242,6 +242,12 @@
   height: 46px;
 }
 
+.meter-lower {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+
+}
 .green-arrow {
   width: 107px;
   height: 46px;

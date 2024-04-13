@@ -2,17 +2,20 @@
 <html>
   <head>
     <title>Emotions</title>
+    <link rel="stylesheet" href="/journal.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
-    <form action="/emotions" method = "POST">
-    <label for="title">Title:</label>
-    <input type="text" id="title" name = "title"/>
+    <form action="/emotions" method = "POST" class="journal">
+    <!-- <label for="title">Title:</label> -->
+    <input type="text" id="title" name = "title" placeholder="Your Title"/>
     <br/>
-    <label for="input">Data:</label>
-    <input type="text" id="input" name = "data"/>
+    <!-- <label for="input">Data:</label> -->
+    <!-- textarea with 20 rows-->
+    <textarea type="text" rows="40" cols="70" id="input" name = "data" placeholder="Your Journal Here..."></textarea>
     <br/>
-    <button type="submit">Send Data</button>
+    <button type="submit" id="btn">Save</button>
   </form>
+  <script src="/journal.js"></script>
   </body>
 </html>
