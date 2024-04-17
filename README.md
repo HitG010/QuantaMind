@@ -1,6 +1,8 @@
 # QuantaMind - Your Emotional Companion
 
-This is Team QuantaMind from first year students of **GDSC DTU**. We worked towards achieving the Sustainable Development Goal (SDG) of ***"Good Health and Well-being"***. QuantaMind is a self-help companion that acts as your online friend which documents every emotion that you experience and helps you overcome your difficulties.
+This is Team QuantaMind from first year students of **DTU**. We worked towards achieving the Healthcare sector of ***"Viksit Bharat Abhiyan"***. QuantaMind is a user-centric, technology-driven solution to provide personalized, stigma-free, and sustainable mental health support to individuals facing stressors and challenges in their daily lives, especially those in remote areas or with limited resources. 
+Also, This makes the work of doctors and psychiatrists easier by aiding in more accurate and quicker patient analysis.
+
 
 
 ![QuantaMind HomePage](/Public/landing-pagedark.png "QuantaMind HomePage")
