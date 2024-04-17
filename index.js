@@ -8,20 +8,25 @@ import { v4 as uuid4 } from "uuid";
 import pg from "pg";
 import cookieParser from "cookie-parser";
 import bcrypt from "bcrypt";
-import moment from "moment";
+import env from "dotenv";
 
 const app = express();
 const port = 3000;
 app.set("view engine", "ejs");
 app.use(cors());
 app.use(cookieParser());
+env.config();
 
 const db = new pg.Client({
-  host: "localhost",
-  port: 5432,
-  user: "postgres",
-  password: "kartik1217",
-  database: "QuantaMind",
+  host: "pg-3ec2b43c-bindrakartik64-ade0.b.aivencloud.com",
+  port: 27548,
+  user: "avnadmin",
+  password: process.env.DB_PASSWORD,
+  database: "defaultdb",
+  ssl:{
+    rejectUnauthorized: false,
+  
+  }
 });
 
 db.connect();
